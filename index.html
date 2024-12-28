@@ -24,11 +24,22 @@
             <div class="total-price">
                 <div class="order-total">
                     <h2>Total price:</h2>
-                    <p>14$</p>
+                    <p id="price">14$</p>
                 </div>
                 <button  id="comple-btn">Complete order</button>
             </div>
         </footer>
+        <form class="payment-methode" id="payment-form">
+            <h1>Enter card details</h1>
+            <div class="input-placeholder">
+                <input type="text" placeholder="Enter you name" name="name" required>
+                <input type="text" placeholder="Enter card number" name="cardnum" required>
+                <input type="text" placeholder="Enter CVV" name="CVV" required>
+            </div>
+            <button id="pay-btn">Pay</button>
+        </form>
+        <div class="thank-you" id="thanks-you">
+            <p id="thanks-msg"></p></div>
 	<script type="module" src="index.js"></script>
     </body>
 </html>
