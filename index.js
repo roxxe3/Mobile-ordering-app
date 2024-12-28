@@ -8,8 +8,11 @@ let orders = []
 
 document.addEventListener('click', function(e) {
     if (e.target.dataset.add) {
-        orders.push(e.target.dataset.add)
-        handleaddorder(e.target.dataset.add)
+        orders.push(menuArray.filter(function(item){
+            return item.id == e.target.dataset.add
+        })[0])
+        console.log(orders)
+        handleaddorder()
     }
 });
 
@@ -40,18 +43,18 @@ return menuHtml
 
 function handleaddorder(orderId) {
     let orderHtml = ""
-    const orderItem = menuArray.filter(function(item){
-        return item.id == orderId
-    })[0]
-    orderHtml += 
-    `
+    orders.forEach(function(orderItem){
+        orderHtml += 
+        `
         <div class="order-details">
-        <div class="order-summary">
-            <h2>${orderItem.name}</h2>
-            <button  id="remove-btn">remove</button>
-            </div>
-        <p>$${orderItem.price}</p>
-    `
+            <div class="order-summary">
+                <h2>${orderItem.name}</h2>
+                <button  id="remove-btn">remove</button>
+                </div>
+            <p>$${orderItem.price}</p>
+        `
+    })
+
     orderDetails.innerHTML = orderHtml
     document.querySelector("footer").style.display = "block"
 }
